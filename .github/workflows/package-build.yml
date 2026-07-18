@@ -9,6 +9,7 @@ jobs:
         with: {python-version: "3.12"}
       - run: python -m pip install build
       - run: python -m build
+      - run: python scripts/inspect_distributions.py
       - run: python -m pip install dist/*.whl
       - run: python -c "import diarizator; assert diarizator.__version__ == '0.1.0'"
       - run: python -c "import tarfile,zipfile,glob; w=zipfile.ZipFile(glob.glob('dist/*.whl')[0]); assert any(x.endswith('The_Measure_of_a_Good_Life.mp3') for x in w.namelist()); t=tarfile.open(glob.glob('dist/*.tar.gz')[0]); assert any(x.endswith('The_Measure_of_a_Good_Life.mp3') for x in t.getnames())"

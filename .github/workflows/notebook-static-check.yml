@@ -7,5 +7,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
+      - run: python -m pip install -e ".[dev]"
       - run: python scripts/validate_notebook.py
-      - run: python -c "import json; json.load(open('notebooks/Diarizator_Community1_Colab.ipynb', encoding='utf-8'))"
+      - run: python -m pytest -q tests/test_notebook_validation.py
