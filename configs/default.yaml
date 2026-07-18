@@ -1,0 +1,6 @@
+backend: community-1
+speaker_count_mode: estimated
+asr_model: large-v3
+language: auto
+allow_cpu_fallback: true
+channel_policy: mix

@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use Diarizator, please cite this software and the upstream systems listed in THIRD_PARTY_NOTICES.md."
+title: "Diarizator"
+type: software
+version: 0.1.0
+authors:
+  - family-names: "Leiva"
+    given-names: "Favio"
+repository-code: "https://github.com/Favioleiva/diarizator"
+url: "https://github.com/Favioleiva/diarizator"
+license: MIT
+keywords:
+  - speaker diarization
+  - speech transcription
+  - pyannote
+  - faster-whisper

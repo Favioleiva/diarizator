@@ -1,0 +1,5 @@
+speaker_count_mode: bounded
+num_speakers: null
+min_speakers: 2
+max_speakers: 5
+oracle_count: false

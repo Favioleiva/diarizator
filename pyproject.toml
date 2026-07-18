@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "diarizator"
+version = "0.1.0"
+description = "Local speaker diarization and transcription with faster-whisper and pyannote Community-1"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "Favio Leiva"}]
+keywords = ["speaker-diarization", "transcription", "pyannote", "whisper", "colab"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Multimedia :: Sound/Audio :: Speech",
+]
+dependencies = []
+
+[project.optional-dependencies]
+inference = [
+  "faster-whisper>=1.2.1,<2",
+  "huggingface-hub>=0.34,<2",
+  "pyannote.audio>=4.0.7,<5",
+  "pyannote.metrics>=4.1,<5",
+]
+dev = [
+  "build>=1.2,<2",
+  "pytest>=8,<10",
+  "PyYAML>=6,<7",
+]
+
+[project.urls]
+Homepage = "https://github.com/Favioleiva/diarizator"
+Repository = "https://github.com/Favioleiva/diarizator"
+Issues = "https://github.com/Favioleiva/diarizator/issues"
+Documentation = "https://github.com/Favioleiva/diarizator/tree/main/docs"
+
+[project.scripts]
+diarizator = "diarizator.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.data-files]
+"share/diarizator/examples/controlled_demo" = [
+  "examples/controlled_demo/The_Measure_of_a_Good_Life.mp3",
+  "examples/controlled_demo/README.md",
+  "examples/controlled_demo/TRANSCRIPT.md",
+  "examples/controlled_demo/AUDIO_LICENSE.md",
+  "examples/controlled_demo/demo_manifest.json",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+markers = ["real_model: requires network, HF access, models, and optionally GPU"]

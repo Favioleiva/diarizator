@@ -1,0 +1,5 @@
+speaker_count_mode: exact
+num_speakers: 2
+min_speakers: null
+max_speakers: null
+oracle_count: true

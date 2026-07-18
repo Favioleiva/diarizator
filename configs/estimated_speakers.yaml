@@ -1,0 +1,5 @@
+speaker_count_mode: estimated
+num_speakers: null
+min_speakers: null
+max_speakers: null
+oracle_count: false
