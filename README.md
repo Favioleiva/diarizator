@@ -1,6 +1,6 @@
 # Diarizator
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Favioleiva/diarizator/blob/main/notebooks/Diarizator_Community1_Colab.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Favioleiva/diarizator/blob/main/colab/Diarizator_Community1_Colab.ipynb)
 [![Tests](https://github.com/Favioleiva/diarizator/actions/workflows/tests.yml/badge.svg)](https://github.com/Favioleiva/diarizator/actions/workflows/tests.yml)
 
 Diarizator combines faster-whisper transcription with pyannote Community-1 speaker diarization and exports reproducible, privacy-conscious result bundles.
