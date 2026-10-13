@@ -47,6 +47,11 @@ def test_required_legal_and_docs_exist():
     assert all((ROOT / name).is_file() for name in required)
 
 
+def test_manifest_includes_public_notebook():
+    manifest = (ROOT / "MANIFEST.in").read_text()
+    assert "recursive-include colab *.ipynb" in manifest
+
+
 def test_only_approved_audio_is_present():
     audio = [p.relative_to(ROOT).as_posix() for p in ROOT.rglob("*") if p.suffix.lower() in {".mp3", ".m4a", ".wav", ".flac", ".ogg", ".opus", ".aac"}]
     assert audio == ["examples/controlled_demo/The_Measure_of_a_Good_Life.mp3"]
