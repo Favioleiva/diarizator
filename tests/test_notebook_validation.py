@@ -14,13 +14,13 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_all_public_notebook_cells_compile():
-    results = validate_public_notebooks(ROOT / "notebooks")
+    results = validate_public_notebooks(ROOT / "colab")
     assert results
     assert all(item["code_cells"] > 0 for item in results.values())
 
 
 def test_public_notebook_is_output_free_and_uses_public_repository():
-    notebook = json.loads((ROOT / "notebooks" / "Diarizator_Community1_Colab.ipynb").read_text(encoding="utf-8"))
+    notebook = json.loads((ROOT / "colab" / "Diarizator_Community1_Colab.ipynb").read_text(encoding="utf-8"))
     source = "".join("".join(cell.get("source", [])) for cell in notebook["cells"])
     assert all(not cell.get("outputs") for cell in notebook["cells"] if cell.get("cell_type") == "code")
     assert 'OWNER = "Favioleiva"' in source and 'REPOSITORY = "diarizator"' in source
