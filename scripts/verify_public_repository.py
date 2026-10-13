@@ -31,7 +31,7 @@ for path in ROOT.rglob("*"):
 for forbidden in ("Input", "Proposal", "Prompts", "Implementation", "Audio"):
     if (ROOT / forbidden).exists(): errors.append(f"forbidden_tree:{forbidden}")
 if audio != [APPROVED_AUDIO]: errors.append("audio_allowlist:" + json.dumps(audio))
-required = ["README.md", "LICENSE", "CITATION.cff", "THIRD_PARTY_NOTICES.md", "notebooks/Diarizator_Community1_Colab.ipynb", APPROVED_AUDIO]
+required = ["README.md", "LICENSE", "CITATION.cff", "THIRD_PARTY_NOTICES.md", "colab/Diarizator_Community1_Colab.ipynb", APPROVED_AUDIO]
 for item in required:
     if item not in files: errors.append("missing:" + item)
 report = {"status": "PASS" if not errors else "FAIL", "file_count": len(files), "approved_audio": audio, "errors": sorted(errors)}

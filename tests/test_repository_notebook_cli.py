@@ -28,7 +28,7 @@ def test_cli_inspect_demo():
 
 
 def test_notebook_upload_first_and_output_free():
-    notebook = json.loads((ROOT / "notebooks" / "Diarizator_Community1_Colab.ipynb").read_text())
+    notebook = json.loads((ROOT / "colab" / "Diarizator_Community1_Colab.ipynb").read_text())
     source = "".join("".join(c.get("source", [])) for c in notebook["cells"])
     assert "files.upload()" in source and "files.download" in source and "userdata.get(\"HF_TOKEN\")" in source
     assert all(not c.get("outputs") for c in notebook["cells"])
