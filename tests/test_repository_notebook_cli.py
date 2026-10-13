@@ -35,6 +35,11 @@ def test_notebook_upload_first_and_output_free():
     assert all(x not in source for x in ("drive.mount", "MyDrive", "Agentic" + " Tasks", "Mapping_Global" + "_GDP"))
 
 
+def test_validate_notebook_script_passes():
+    result = subprocess.run([sys.executable, str(ROOT / "scripts" / "validate_notebook.py")], capture_output=True, text=True, cwd=ROOT, env=command_env())
+    assert result.returncode == 0 and "NOTEBOOK_STATIC_VALIDATION_PASS" in result.stdout
+
+
 def test_configs_and_citation_parse():
     for path in (ROOT / "configs").glob("*.yaml"):
         assert isinstance(yaml.safe_load(path.read_text()), dict)
